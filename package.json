@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open:useOne": "npx cypress open -C cypress.config.js",
+    "cy:open:userTwo": "npx cypress open -C cypress.config.two.js",
+    "test:mocha:html": "npx mochawesome-merge 'cypress/results/*.json' > mochawesome.json && npx marge mochawesome.json"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cypress": "^13.12.0"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2"
   }
 }
