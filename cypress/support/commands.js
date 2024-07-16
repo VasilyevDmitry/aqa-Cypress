@@ -25,29 +25,30 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
-    if (options && options.sensitive) {
-      // turn off original log
-      options.log = false
-      // create our own log with masked message
-      Cypress.log({
-        $el: element,
-        name: 'type',
-        message: '*'.repeat(text.length),
-      })
-    }
-  
-    return originalFn(element, text, options)
-  })
+  if (options && options.sensitive) {
+    // turn off original log
+    options.log = false
+    // create our own log with masked message
+    Cypress.log({
+      $el: element,
+      name: 'type',
+      message: '*'.repeat(text.length),
+    })
+  }
+
+  return originalFn(element, text, options)
+})
 
 Cypress.Commands.add('login', (email, password) => {
     // Перейдите на страницу логина
-    cy.visit('https://guest:welcome2qauto@qauto.forstudy.space');
+    // cy.visit('https://guest:welcome2qauto@qauto.forstudy.space');
+    cy.visit('/')
     cy.get('button').contains('Sign In').click()
 
     
     // Введите email и пароль
     cy.get('#signinEmail').type(email);
-    cy.get('#signinPassword').type(password, { sensitive: true });
+    cy.get('#signinPassword').type(password);
     
     // Нажмите кнопку входа
     cy.get('button').contains('Login').click()
@@ -57,6 +58,6 @@ Cypress.Commands.add('login', (email, password) => {
     cy.contains('Add car').should('be.visible');
   });
 
- 
+  
 
   
