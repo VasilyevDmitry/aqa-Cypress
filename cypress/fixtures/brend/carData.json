@@ -1,0 +1,35 @@
+
+{
+    "Fiat" : {
+
+     "id" : 5,
+     "brend": "Fiat",
+     "mileage": 71,
+     "model": {
+        "id" : 19,
+        "modelName"  :"Palio"
+
+     }
+    },
+    "Audi" : {
+
+    "id" : 1,
+    "brend": "Audi",
+    "mileage": 88,
+    "model": {
+        "id" : 1,
+        "modelName"  :"TT"
+     }
+     
+    },
+    "BMW" : {
+
+        "id" : 2,
+        "brend": "BMW",
+        "mileage": 88,
+        "model": {
+            "id" : 9,
+            "modelName"  :"X6"
+         }   
+     }
+    } 
